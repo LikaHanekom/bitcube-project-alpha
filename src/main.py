@@ -1,5 +1,5 @@
 # Team Project: Calculator Application
-# Version: 1.0.0
+# Version: 1.0.1
 def add(a, b):
     """Add two numbers"""
     return a + b
@@ -17,7 +17,7 @@ def divide(a, b):
         raise ValueError("Cannot divide by zero!")
     return a / b
 if __name__ == "__main__":
-    print("Calculator v1.0.0")
+    print("Calculator v1.0.1")
     print(f"10 + 5 = {add(10, 5)}")
     print(f"10 - 5 = {subtract(10, 5)}")
     print(f"10 * 5 = {multiply(10, 5)}")
