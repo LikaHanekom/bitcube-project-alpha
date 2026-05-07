@@ -1,0 +1,23 @@
+#Workflow display name
+name: CI Demo
+
+on: #Tells Github when the automation should be run
+#The following tells Github that the workflow needs to be run whenever code is pushed to the main branch
+  push:
+    branches:
+      - main
+
+#Workflow also runs when someone opens/updates pull request.
+  pull_request:
+
+jobs:
+  demo-job: #Job name
+    runs-on: ubuntu-latest
+
+    steps: 
+    #Downloads repository files into temp GitHub computer
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run demo command
+        run: echo "CI is running"
