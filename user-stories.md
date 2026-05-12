@@ -95,7 +95,7 @@ Medium
 ### Acceptance Criteria:
 - [ ] Given I have an active booking, When I click cancel, Then the booking must be removed
 - [ ] Given the booking is cancelled, When another user searches for rooms, Then the slot must be shown as availible
-- [ ] Given I accidentally cancel, When cancellation occurs, Then the system must display a confirmation prompt.
+- [ ] Given I want to cancel a booking, When I press the cancel button, Then the system must display a cancel confirmation prompt.
 
 ### Story Points:
 2
