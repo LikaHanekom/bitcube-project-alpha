@@ -47,15 +47,15 @@ Blockers:
 - Waiting for final API response format for room filtering
 
 ## Day 5
-### Team Member: Admin Dashboard Developer
+### Team Member: Frontend Developer
 
 Yesterday:
 - Created dashboard layout and booking statistics cards
 - Added basic room activity summaries
 
 Today:
-- Implement dashboard charts and reporting queries
-- Begin testing admin access permissions
+- Implement dashboard charts and reporting components
+- Improve dashboard responsiveness and UI consistency
 
 Blockers:
 - Dashboard query performance slower than expected with larger booking datasets

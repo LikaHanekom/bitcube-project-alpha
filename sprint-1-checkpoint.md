@@ -10,7 +10,6 @@
 - Story #1 As a Employee I want to book an available conference room
 
 ## Decisions Taken
-[Scope changes, deferrals, or adjustments]
 -Admin Dashboard charts simplified to reduce the implementation complexity.
 
 ## Blockers
