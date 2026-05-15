@@ -1,11 +1,24 @@
 # Sprint 1 Retrospective
 Date: 14 May 2026   
 Participants: Alika Hanekom
+
 ## Start
-- Practices or behaviours to introduce next sprint
+- Test features earlier during development
+- Break larger stories into smaller tasks
+- Improve estimation discussions
+
 ## Stop
-- Practices or behaviours that hindered progress
+- Leaving testing till the last minute
+- Taking on too many stories in one sprint
+- Starting tasks without them having all their specified subtasks in place
+
 ## Continue
-- Practices that worked well and should be maintained
+- Daily Progress Updates
+- Team collaboration
+- Consistantly using the task board
+
 ## Action Items
 | Action | Owner | When |
+| Improve estimation process | Scrum Master | Sprint Planning |
+| Clarify requirements earlier | Product Owner | Before Sprint 2 |
+| Start testing earlier | Development Team | Sprint 2 |
