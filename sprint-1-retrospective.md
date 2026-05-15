@@ -19,6 +19,7 @@ Participants: Alika Hanekom
 
 ## Action Items
 | Action | Owner | When |
+|---|---|---|
 | Improve estimation process | Scrum Master | Sprint Planning |
 | Clarify requirements earlier | Product Owner | Before Sprint 2 |
 | Start testing earlier | Development Team | Sprint 2 |
