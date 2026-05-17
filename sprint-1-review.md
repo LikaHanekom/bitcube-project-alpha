@@ -2,7 +2,9 @@
 Sprint Goal: Enable employees and administrators to successfully manage conference room bookings and availability without scheduling conflicts.
 
 Sprint Duration: 2 weeks
+
 Team: Alika Hanekom
+
 Date: 14 May 2026
 
 ## Sprint Goal Outcome
@@ -47,9 +49,9 @@ Partially met
 
 
 ## Sprint Metrics
-Planned points: 18
-Completed points:15
-Actual velocity: 15
+- Planned points: 18
+- Completed points:15
+- Actual velocity: 15
 
 ## Delivery Confidence for Next Sprint
 Medium
