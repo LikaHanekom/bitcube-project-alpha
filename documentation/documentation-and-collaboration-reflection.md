@@ -1,0 +1,7 @@
+# Reflection Assignment 3.1
+
+My original README assumed a technically comfortable audience familiar with Git and GitHub workflows as well as someone on the same team as me would be using the repository. It expected users to understand how to clone repositories, switch branches, and run the project without much guidance. It also assumed that readers would intuitively understand project structure and terminology without needing detailed explanations or examples.
+
+The updated README improves onboarding by adding clearer step-by-step setup instructions, including prerequisites, installation steps, and expected outputs. It reduces confusion by structuring information into logical sections such as setup, usage, and contribution guidelines. New users can now quickly understand how to run the project and verify that everything is working correctly, even without prior experience with the repository.
+
+What I learned from working with Pull Requests and issues is how important structured communication is for collaboration. Issues help break work into clear tasks, while Pull Requests provide a space for discussion, review, and improvement before merging changes. I also learned that clear descriptions and comments make it easier for others to understand intent and give meaningful feedback.
