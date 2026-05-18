@@ -9,6 +9,8 @@ The purpose of the system is to help employees schedule and manage conference ro
 
 This repository currently contain sprint documentation, planning artefacts and the foundational project structure for future implementation.
 
+The purpose of this documentation is to help new contributors understand:
+
 ## Intended users
 
 - Employees booking conference rooms
@@ -24,11 +26,22 @@ This repository currently contain sprint documentation, planning artefacts and t
 - Javascript
 
 ## System Context
+The Conference Room booking system is intended to manage:
+
 - user authentication
 - conference room booking management
 - availability scheduling
 - reservation validation
-- administrative controls
+- administrative oversight
+
+At the current stage, the repository primarily contains:
+- Sprint planning artefacts
+- Agile documentation
+- Collaboration workflows
+- Early project structure
+
+Implementation details and technical functionality will be introduced in future iterations.
+
 
 ### Planned High level components
 ```plaintext
@@ -52,29 +65,40 @@ Database Layer (Future)
 ```
 
 ## Project Structure
-
 ```plaintext
 conference-room-booking-system/
 │
 ├── assets/
-│   └── Images and static resources
-│
 ├── src/
-│   ├── index.html
-│   └── app.js
-│
-├── sprint-documents/
-│   ├── user-stories.md
-│   ├── sprint-planning.md
-│   ├── sprint-review.md
-│   └── retrospective.md
-│
 ├── documentation/
-│   └── additional project notes
+│   ├── agile/
+│   ├── sprint-1/
+│   └── reflections/
 │
+├── .github/
 ├── .gitignore
 └── README.md
 ```
+
+## Project Documentation
+
+### Agile Documentation
+- `documentation/agile/user-stories.md`
+- `documentation/agile/epics.md`
+- `documentation/agile/priority-matrix.md`
+
+### Sprint Documentation
+- `documentation/sprint-1/sprint-1-planning.md`
+- `documentation/sprint-1/sprint-1-dailies.md`
+- `documentation/sprint-1/sprint-1-review.md`
+- `documentation/sprint-1/sprint-1-retrospective.md`
+- `documentation/sprint-1/sprint-1-summary.md`
+
+### Reflection Documentation
+- `documentation/reflections/personal-reflection.md`
+
+---
+
 
 ## Key markdown artefacts
 | File | Purpose |
@@ -91,6 +115,7 @@ conference-room-booking-system/
 - Basic understanding of Agile Scrum workflows
 
 ## Getting Started
+
 ### Clone Repository
 ```bash
 git clone https://github.com/LikaHanekom/bitcube-project-alpha.git
@@ -107,6 +132,8 @@ Open the folder in VS Code.
 
 ## Contribution Workflow
 This project uses feature branches and pull requests for collaboration
+
+Contributors should avoid committing directly to the 'main' brnch. 
 
 ### Contribution Steps
 1. Create a new branch
@@ -126,14 +153,19 @@ When creating a Pull Request:
 
 ---
 
-## Future Technical Documentation
+## Upcoming Sections
 
-### Planned Sections
-- API Documentation
-- Database Schema
-- Deployment Instructions
-- Testing Strategy
-- Architecture Diagrams
+Future versions of this README may include:
+
+- Development environment setup
+- Installation instructions
+- System architecture diagrams
+- Database structure
+- API documentation
+- Testing strategy
+- Deployment guidance
+
+---
 
 
 ## Repository Hygiene
@@ -145,6 +177,9 @@ The `.gitignore` file excludes:
 - `.DS_Store`
 
 ---
+
+## Status
+Project currently in planning and onboarding phase.
 
 ## Author
 Developed by Alika Hanekom
