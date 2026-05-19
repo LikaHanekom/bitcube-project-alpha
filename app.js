@@ -12,9 +12,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/ping', (req, res) => {
-    res.send("pong");
-});
 
 // Load Swagger YAML
 const swaggerDocument = YAML.load(
@@ -23,9 +20,7 @@ const swaggerDocument = YAML.load(
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-/* =========================
-   IN-MEMORY DATA STORAGE
-========================= */
+//   IN-MEMORY DATA STORAGE
 
 let rooms = [
     { id: 1, name: "Boardroom A", capacity: 20, location: "First Floor" }
@@ -41,9 +36,8 @@ let bookings = [
     }
 ];
 
-/* =========================
-   ROOMS ENDPOINTS
-========================= */
+//ROOMS ENDPOINTS
+
 
 // GET all rooms
 app.get('/api/rooms', (req, res) => {
@@ -75,9 +69,9 @@ app.post('/api/rooms', (req, res) => {
     res.status(201).json(newRoom);
 });
 
-/* =========================
-   BOOKINGS ENDPOINTS
-========================= */
+
+// BOOKINGS ENDPOINTS
+
 
 // GET all bookings
 app.get('/api/bookings', (req, res) => {
@@ -142,9 +136,7 @@ app.get('/api/rooms/:id/availability', (req, res) => {
     });
 });
 
-/* =========================
-   START SERVER
-========================= */
+// START SERVER
 
 app.listen(8080, () => {
     console.log('Server running on http://localhost:8080');
