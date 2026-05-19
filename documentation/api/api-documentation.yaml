@@ -1,0 +1,142 @@
+openapi: 3.0.0
+
+info:
+  title: Conference Room Booking API
+  description: API for managing conference rooms and bookings
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080/api
+    description: Local Development Server
+
+paths:
+
+  /rooms:
+    get:
+      summary: Get all conference rooms
+
+      responses:
+        '200':
+          description: List of conference rooms
+
+          content:
+            application/json:
+              schema:
+                type: array
+
+                items:
+                  $ref: '#/components/schemas/Room'
+
+    post:
+      summary: Create a conference room
+
+      requestBody:
+        required: true
+
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+
+      responses:
+        '201':
+          description: Room created successfully
+
+  /rooms/{id}:
+    get:
+      summary: Get room by ID
+
+      parameters:
+        - name: id
+          in: path
+          required: true
+
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Room found
+
+  /bookings:
+    get:
+      summary: Get all bookings
+
+      responses:
+        '200':
+          description: Booking list
+
+    post:
+      summary: Create booking
+
+      responses:
+        '201':
+          description: Booking created successfully
+
+components:
+
+  schemas:
+
+    Room:
+      type: object
+
+      properties:
+
+        id:
+          type: integer
+          example: 1
+
+        name:
+          type: string
+          example: Boardroom A
+
+        capacity:
+          type: integer
+          example: 20
+
+        location:
+          type: string
+          example: First Floor
+
+    Booking:
+      type: object
+
+      properties:
+
+        id:
+          type: integer
+
+        roomId:
+          type: integer
+
+        bookedBy:
+          type: string
+
+        startTime:
+          type: string
+          format: date-time
+
+        endTime:
+          type: string
+          format: date-time
+
+    Error:
+      type: object
+
+      properties:
+
+        message:
+          type: string
+
+        status:
+          type: integer
+
+  securitySchemes:
+
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []
