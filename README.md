@@ -100,13 +100,38 @@ conference-room-booking-system/
 ---
 
 
-## Key markdown artefacts
+## Key Markdown Artefacts
+
+The repository contains several markdown artefacts created during Agile planning and sprint activities.
+
+### Agile Planning Artefacts
+
 | File | Purpose |
 |---|---|
-| `user-stories.md` | Contains Agile user stories |
-| `sprint-planning.md` | Sprint goals and planning |
-| `sprint-review.md` | Sprint review outcomes |
-| `retrospective.md` | Reflection on sprint process |
+| `epics.md` | Defines the high-level project goals and major functional areas |
+| `priority-matrix.md` | Organises features and tasks based on importance and urgency |
+| `user-stories.md` | Contains user stories describing intended system functionality |
+
+---
+
+### Sprint 1 Documentation
+
+| File | Purpose |
+|---|---|
+| `sprint-1-planning.md` | Documents sprint goals, scope, and planned work |
+| `sprint-1-dailies.md` | Records daily stand-up discussions and progress updates |
+| `sprint-1-checkpoint.md` | Captures sprint checkpoint reviews and interim progress |
+| `sprint-1-review.md` | Summarises sprint review outcomes and completed work |
+| `sprint-1-retrospective.md` | Reflects on sprint successes, challenges, and improvements |
+| `sprint-1-summary.md` | Provides an overall summary of Sprint 1 activities and outcomes |
+
+---
+
+### Reflection Documentation
+
+| File | Purpose |
+|---|---|
+| `personal-reflection.md` | Contains individual reflections on project collaboration and development practices |
 
 ## Prerequisites
 - Git installed
