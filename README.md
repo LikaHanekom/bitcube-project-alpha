@@ -25,6 +25,49 @@ This is a top-secret Internal tool for Bitcube.
 - [Status](#status)
 - [Author](#author)
 
+---
+
+## Quick Start
+
+Get the application built and running inside an isolated Docker container in less than a minute.
+
+### 1. Clone and Enter the Repository
+```bash
+git clone [https://github.com/LikaHanekom/bitcube-project-alpha.git](https://github.com/LikaHanekom/bitcube-project-alpha.git)
+cd bitcube-project-alpha
+```
+### 2 Build the Docker Image
+```bash
+docker build -t conference-booking-ui:v1 .
+```
+
+### 3. Run the Container with Environment Variables
+```bash
+docker run -d `
+  -p 8080:80 `
+  -e APP_ENV=development `
+  -e API_URL=http://localhost:5000/api `
+  --name Conference-booking-system `
+  conference-booking-ui:v1
+```
+### 4. Access the App
+Open web browser and navigate to:http://localhost:8080
+
+### 5. Clean Up/Stop the App
+```dash
+docker rm -f Conference-booking-system
+```
+
+### Troubleshooting Name Conflicts
+If you encounter a container name conflict error like this:
+> `Conflict. The container name "/Conference-booking-system" is already in use...`
+
+Simply run the clean-up command to remove the ghost container, and then try running it again:
+```bash
+docker rm -f Conference-booking-system
+```
+
+
 ## Project Overview
 The Conference Room Booking System is a collaborative software project developed using Agile Scrum methodologies.
 
