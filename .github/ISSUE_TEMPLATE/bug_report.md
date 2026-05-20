@@ -32,6 +32,6 @@ What actually happened?
 
 ---
 
-## Additional Notes
+## Additional Notes s
 
 Add screenshots or additional context if needed.
