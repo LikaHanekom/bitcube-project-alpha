@@ -6,72 +6,179 @@ info:
   version: 1.0.0
 
 servers:
-  - url: http://localhost:8080/api # Where API runs
-    description: Local Development Server
+  - url: https://staging-api.example.com/v1
+    description: Staging environment for testing and contract validation.
+  - url: https://api.example.com/v1
+    description: Production environment.
 
-paths: #API Endpoints
+security:
+  - BearerAuth: []
 
-  /rooms: #endpoint-define /rooms route
-    get: #retrieve data
-      summary: Get all conference rooms
-
-      responses: # possible server responses
+paths:
+  # --- ROOMS ENDPOINTS ---
+  /rooms:
+    get:
+      summary: Retrieve all conference rooms
+      description: Returns a list of all rooms available in the system.
+      responses:
         '200':
-          description: List of conference rooms
-
-          content: # The response body format
+          description: A successful list of rooms.
+          content:
             application/json:
               schema:
                 type: array
-
                 items:
                   $ref: '#/components/schemas/Room'
-
-    post: #sends
-      summary: Create a conference room
-
+    post:
+      summary: Create a new conference room
+      description: Adds a new room to the booking directory (Admin only).
       requestBody:
         required: true
-
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Room'
-
       responses:
         '201':
-          description: Room created successfully
+          description: Room successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '400':
+          description: Invalid input data supplied.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
-  /rooms/{id}:
+  /rooms/{roomId}:
     get:
-      summary: Get room by ID
-
-      parameters: #inputs required in URL
-        - name: id
+      summary: Fetch details of a specific room
+      parameters:
+        - name: roomId
           in: path
           required: true
-
+          description: Unique ID of the room.
           schema:
-            type: integer
-
+            type: string
       responses:
         '200':
-          description: Room found
+          description: Room details found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '404':
+          description: Room not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
+  # --- BOOKINGS ENDPOINTS ---
   /bookings:
     get:
-      summary: Get all bookings
-
+      summary: List all active bookings
       responses:
         '200':
-          description: Booking list
-
+          description: A successful list of scheduled bookings.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Booking'
     post:
-      summary: Create booking
-
+      summary: Book a conference room
+      description: Reserves a specific room for a user during a designated timeframe.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Booking'
       responses:
         '201':
-          description: Booking created successfully
+          description: Booking successfully generated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '409':
+          description: Conflict. The room is already booked for this timeframe.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /bookings/{bookingId}:
+    get:
+      summary: Get details of a specific booking
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          description: Unique ID of the booking.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Booking found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '404':
+          description: Booking not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Cancel an existing booking
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          description: Unique ID of the booking to cancel.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Booking successfully canceled. No content returned.
+        '404':
+          description: Booking not found.
+
+  # AVAILABILITY ENDPOINT
+  /availability:
+    get:
+      summary: Find free rooms by timeframe
+      description: Returns a list of rooms that have zero booking conflicts during the requested window.
+      parameters:
+        - name: startTime
+          in: query
+          required: true
+          description: ISO-8601 string of the start time window.
+          schema:
+            type: string
+            format: date-time
+        - name: endTime
+          in: query
+          required: true
+          description: ISO-8601 string of the end time window.
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: List of available rooms returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Room'
 
 components:
 
@@ -98,38 +205,45 @@ components:
           type: string
           example: First Floor
 
-    Booking: #booking schema
+    Booking:
       type: object
-
+      required:
+        - id
+        - roomId
+        - userId
+        - startTime
+        - endTime
       properties:
-
         id:
-          type: integer
-
-        roomId:
-          type: integer
-
-        bookedBy:
           type: string
-
+          example: "bk_9942"
+        roomId:
+          type: string
+          example: "rm_101"
+        userId:
+          type: string
+          example: "usr_552"
         startTime:
           type: string
           format: date-time
-
+          example: "2026-06-01T10:00:00Z"
         endTime:
           type: string
           format: date-time
+          example: "2026-06-01T11:30:00Z"
 
-    Error: #error schema
+    Error:
       type: object
-
+      required:
+        - code
+        - message
       properties:
-
+        code:
+          type: string
+          example: "RESOURCE_CONFLICT"
         message:
           type: string
-
-        status:
-          type: integer
+          example: "The requested room is already reserved during this time."
 
   securitySchemes: #defines authentication methods
 
