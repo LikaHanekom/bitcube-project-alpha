@@ -27,7 +27,7 @@ paths: #API Endpoints
                 items:
                   $ref: '#/components/schemas/Room'
 
-    post: 
+    post: #sends
       summary: Create a conference room
 
       requestBody:
