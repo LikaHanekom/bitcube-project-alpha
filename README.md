@@ -1,6 +1,29 @@
 # Bitcube Project Alpha: Conference Room Booking System
 
 This is a top-secret Internal tool for Bitcube.
+---
+# Table of Contents
+
+- [Project Overview](#project-overview)
+- [Intended Users](#intended-users)
+- [Technologies Used](#technologies-used)
+- [System Context](#system-context)
+- [Planned High Level Components](#planned-high-level-components)
+- [Project Structure](#project-structure)
+- [Project Documentation](#project-documentation)
+  - [Agile Documentation](#agile-documentation)
+  - [Sprint Documentation](#sprint-documentation)
+  - [Reflection Documentation](#reflection-documentation)
+- [Key Markdown Artifacts](#key-markdown-artifacts)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Running the Web Application](#running-the-web-application)
+- [Contribution Workflow](#contribution-workflow)
+- [Pull Request Expectations](#pull-request-expectations)
+- [Upcoming Sections](#upcoming-sections)
+- [Repository Hygiene](#repository-hygiene)
+- [Status](#status)
+- [Author](#author)
 
 ## Project Overview
 The Conference Room Booking System is a collaborative software project developed using Agile Scrum methodologies.
@@ -23,7 +46,9 @@ The purpose of this documentation is to help new contributors understand:
 - Markdown
 - Python
 - HTML
+- CSS
 - Javascript
+- Docker
 
 ## System Context
 The Conference Room booking system is intended to manage:
@@ -66,17 +91,23 @@ Database Layer (Future)
 
 ## Project Structure
 ```plaintext
-conference-room-booking-system/
-│
-├── assets/
-├── src/
-├── documentation/
-│   ├── agile/
-│   ├── sprint-1/
-│   └── reflections/
+bitcube-project-alpha/
 │
 ├── .github/
+├── assets/
+├── documentation/
+│   ├── agile/
+│   ├── api/
+│   ├── reflections/
+│   └── sprint-1/
+├── src/
+│   ├── app.js
+│   ├── index.html
+│   ├── main.py
+│   └── style.css
+├── .dockerignore
 ├── .gitignore
+├── Dockerfile
 └── README.md
 ```
 
@@ -137,6 +168,7 @@ The repository contains several markdown artefacts created during Agile planning
 - Git installed
 - GitHub account access
 - VS Code or another IDE
+- Docker Desktop installed (optional, for containerized running)
 - Basic understanding of Agile Scrum workflows
 
 ## Getting Started
@@ -149,11 +181,65 @@ git clone https://github.com/LikaHanekom/bitcube-project-alpha.git
 ### Open the project
 
 ```bash
-cd conference-room-booking-system
+cd bitcube-project-alpha
 ```
 
-Open the folder in VS Code.
+# Open the folder in VS Code.
+```bash
+code .
+```
 
+## Running the Web Application
+
+This project is a static web application built with HTML and CSS.
+
+You can run it in **two ways**:
+
+---
+
+### Option 1: Open directly in browser
+
+1. Navigate to the project folder
+2. Open the src/ folder and locate index.html.
+
+3. Double-click `index.html`
+4. It will open in your default browser
+
+---
+
+### Option 2: Use Live Server
+
+If you're using VS Code:
+
+1. Install the **Live Server extension**
+2. Open the project in VS Code
+3. Right-click `index.html`
+4. Click **"Open with Live Server"**
+
+This will run the project at:
+
+http://127.0.0.1:5500
+
+### Option 3: Running with Docker 
+
+You can also run this project using Docker.
+
+#### 1. Build the image
+
+```bash
+docker build -t conference-booking-ui:v1 .
+```
+#### Run the Container
+```bash
+docker run -d -p 8080:80 --name Conference-booking-system conference-booking-ui:v1
+```
+#### Open in browser
+http://localhost:8080
+
+#### Stop/Reset the Container
+```bash
+docker rm -f Conference-booking-system
+```
 
 ## Contribution Workflow
 This project uses feature branches and pull requests for collaboration
@@ -161,10 +247,10 @@ This project uses feature branches and pull requests for collaboration
 Contributors should avoid committing directly to the 'main' brnch. 
 
 ### Contribution Steps
-1. Create a new branch
+1. Create a new local feature branch (git checkout -b feature/your-feature-name).
 2. Make your changes
 3. Commit using conventional commit messages
-4. Push your branch
+4. Push your branch to GitHub (git push origin feature/your-feature-name).
 5. Open a Pull Request
 6. Request peer review before merging
 
