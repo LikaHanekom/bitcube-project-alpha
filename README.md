@@ -27,16 +27,17 @@ This is a top-secret Internal tool for Bitcube.
 
 ---
 
-## Quick Start
+## Quick Start Guide
 
 Get the application built and running inside an isolated Docker container in less than a minute.
 
 ### 1. Clone and Enter the Repository
 ```bash
-git clone [https://github.com/LikaHanekom/bitcube-project-alpha.git](https://github.com/LikaHanekom/bitcube-project-alpha.git)
+git clone https://github.com/LikaHanekom/bitcube-project-alpha.git
 cd bitcube-project-alpha
 ```
-### 2 Build the Docker Image
+### 2 Build the Docker Image : 
+Please ensure that Docker is open and running before running the following in the terminal:
 ```bash
 docker build -t conference-booking-ui:v1 .
 ```
