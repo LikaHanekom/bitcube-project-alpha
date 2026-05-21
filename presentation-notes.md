@@ -36,8 +36,7 @@ o mitigate this, developers are required to pull down the latest develop branch 
  and rebase their feature branches frequently."
 
 # Slide 9 
-"For the demo, I am going to simulate adding a new branches, showing you exactly how our 
-automated GitHub actions catch linting errors before a human reviewer even looks at it."
+For the demo, I am going to simulate adding a new branche.
 
 # Slide 10
 Wrap up, 
